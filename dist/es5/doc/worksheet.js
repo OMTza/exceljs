@@ -852,21 +852,6 @@ Please leave feedback at https://github.com/exceljs/exceljs/discussions/2575`);
     });
     return model;
   }
-  _parseRows(model) {
-    this._rows = [];
-    model.rows.forEach(rowModel => {
-      const row = new Row(this, rowModel.number);
-      this._rows[row.number - 1] = row;
-      row.model = rowModel;
-    });
-  }
-  _parseMergeCells(model) {
-    _.each(model.mergeCells, merge => {
-      // Do not merge styles when importing an Excel file
-      // since each cell may have different styles intentionally.
-      this.mergeCellsWithoutStyle(merge);
-    });
-  }
   set model(value) {
     this.name = value.name;
     this._columns = Column.fromModel(this, value.cols);
@@ -888,6 +873,21 @@ Please leave feedback at https://github.com/exceljs/exceljs/discussions/2575`);
     }, {});
     this.pivotTables = value.pivotTables;
     this.conditionalFormattings = value.conditionalFormattings;
+  }
+  _parseRows(model) {
+    this._rows = [];
+    model.rows.forEach(rowModel => {
+      const row = new Row(this, rowModel.number);
+      this._rows[row.number - 1] = row;
+      row.model = rowModel;
+    });
+  }
+  _parseMergeCells(model) {
+    _.each(model.mergeCells, merge => {
+      // Do not merge styles when importing an Excel file
+      // since each cell may have different styles intentionally.
+      this.mergeCellsWithoutStyle(merge);
+    });
   }
 }
 module.exports = Worksheet;

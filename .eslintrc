@@ -19,6 +19,7 @@
     "default-case": ["off"],
     "func-names": ["off", "never"],
     "global-require": ["off"],
+    "import/extensions": ["off"],
     "max-len": ["error", {"code": 120, "ignoreComments": true, "ignoreStrings": true}],
     "no-console": ["error", { "allow": ["warn"] }],
     "no-continue": ["off"],

@@ -4,7 +4,9 @@ module.exports = async function* iterateStream(stream) {
   const contents = [];
   stream.on('data', data => contents.push(data));
   let resolveStreamEndedPromise;
-  const streamEndedPromise = new Promise(resolve => resolveStreamEndedPromise = resolve);
+  const streamEndedPromise = new Promise(resolve => {
+    resolveStreamEndedPromise = resolve;
+  });
   let ended = false;
   stream.on('end', () => {
     ended = true;
