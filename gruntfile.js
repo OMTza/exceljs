@@ -26,6 +26,11 @@ module.exports = function(grunt) {
     },
     browserify: {
       options: {
+        // browserify's own require-scanner can't parse uuid's modern (`??=`) syntax,
+        // so swap it for a tiny native-crypto shim in browser builds only
+        alias: {
+          uuid: './lib/utils/uuid-browser-shim.js',
+        },
         transform: [
           [
             'babelify',
