@@ -108,6 +108,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-logical-assignment-operators": "^7.29.7",
     "@babel/preset-env": "^7.11.0",
     "@types/chai": "^4.2.12",
     "@types/mocha": "^10.0.10",
@@ -133,7 +134,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jasmine": "^4.0.0",
     "grunt-exorcise": "^2.1.1",
-    "grunt-terser": "^1.0.0",
+    "grunt-terser": "^2.0.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.2.13",
     "mocha": "^11.8.0",

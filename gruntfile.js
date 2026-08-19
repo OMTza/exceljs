@@ -26,11 +26,6 @@ module.exports = function(grunt) {
     },
     browserify: {
       options: {
-        // browserify's own require-scanner can't parse uuid's modern (`??=`) syntax,
-        // so swap it for a tiny native-crypto shim in browser builds only
-        alias: {
-          uuid: './lib/utils/uuid-browser-shim.js',
-        },
         transform: [
           [
             'babelify',
@@ -38,6 +33,10 @@ module.exports = function(grunt) {
               // enable babel transpile for node_modules
               global: true,
               presets: ['@babel/preset-env'],
+              // browserify's dependency scanner (acorn-node) can't parse ES2021
+              // logical assignment (`??=`) that preset-env keeps for modern targets,
+              // so always down-level it for the browser bundles
+              plugins: ['@babel/plugin-transform-logical-assignment-operators'],
               // core-js should not be transpiled
               // See https://github.com/zloirock/core-js/issues/514
               ignore: [/node_modules[\\/]core-js/],
