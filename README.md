@@ -2376,7 +2376,7 @@ The constructor takes an optional options object with the following fields:
 | filename         | If stream not specified, this field specifies the path to a file to write the XLSX workbook to. |
 | useSharedStrings | Specifies whether to use shared strings in the workbook. Default is `false`. |
 | useStyles        | Specifies whether to add style information to the workbook. Styles can add some performance overhead. Default is `false`. |
-| zip              | [Zip options](https://www.archiverjs.com/global.html#ZipOptions) that ExcelJS internally passes to [Archiver](https://github.com/archiverjs/node-archiver). Default is `undefined`. |
+| zip              | ZIP writer options. Only `zlib.level` is supported and maps to the ZIP compression level (integer from `-1` to `9`). Other Archiver ZIP options are not supported. Default compression level is `6`. |
 
 If neither stream nor filename is specified in the options, the workbook writer will create a StreamBuf object
  that will store the contents of the XLSX workbook in memory.

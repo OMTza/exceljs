@@ -13,7 +13,7 @@
     "url": "https://github.com/exceljs/exceljs.git"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=14.18.0"
   },
   "main": "./excel.js",
   "browser": "./dist/exceljs.min.js",
@@ -95,15 +95,15 @@
     "pageSetup"
   ],
   "dependencies": {
-    "archiver": "^5.0.0",
     "dayjs": "^1.8.34",
-    "fast-csv": "^4.3.1",
+    "fast-csv": "^5.0.7",
     "jszip": "^3.10.1",
     "readable-stream": "^3.6.0",
     "saxes": "^5.0.1",
     "tmp": "^0.2.0",
-    "unzipper": "^0.10.11",
-    "uuid": "^11.1.1"
+    "unzipper": "^0.12.5",
+    "uuid": "^11.1.1",
+    "yazl": "^3.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
