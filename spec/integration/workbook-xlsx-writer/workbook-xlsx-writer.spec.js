@@ -416,6 +416,15 @@ describe('WorkbookWriter', () => {
         });
     });
 
+    it('rejects unsupported zip options', () => {
+      expect(
+        () =>
+          new ExcelJS.stream.xlsx.WorkbookWriter({
+            zip: {forceZip64: true},
+          })
+      ).to.throw('Unsupported ZIP option: forceZip64');
+    });
+
     it('writes notes', async () => {
       const options = {
         filename: TEST_XLSX_FILE_NAME,
